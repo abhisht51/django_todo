@@ -23,7 +23,7 @@
 	<blockquote>
 		<p>{{todo_item.content}}</p></blockquote>
 <div class="form-group">
-	<form class="visible-inline" action="/deleteTodo/{{todo_item.id}}" style="display: inline-block;" method="get">{% csrf_token%}
+	<form class="visible-inline" action="{url 'delete-todo' todo_id=todo_item.id}" style="display: inline-block;" method="get">{% csrf_token%}
 
 	<input type="submit" value="Delete" class="btn btn-danger">
 
@@ -32,7 +32,7 @@
 	{% endfor %}
 </ul>
 <div class="form-group">
-<form action="/addTodo/" method="post">{% csrf_token%}
+<form action="{% url 'add-todo' %}" method="post">{% csrf_token%}
 	<input type="text" name="content">
 	<input type="submit" value="Add" class="btn btn-success">
 </div>
