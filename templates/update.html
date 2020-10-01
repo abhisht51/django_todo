@@ -18,28 +18,19 @@
 </ul>
 -->
 <ul>
-	{% for todo_item in all_items %}
+	
 	<li>
 	<blockquote>
 		<p>{{todo_item.content}}</p></blockquote>
-<div class="form-group">
-	<form class="visible-inline" action="{% url 'delete-todo' todo_item.id %}" style="display: inline-block;" method="get">{% csrf_token%}
-
-	<input type="submit" value="Delete" class="btn btn-danger">
-	<a href="{% url 'update-todo' todo_item.id %}"  class="btn btn-danger" target="_blank" rel="noopener noreferrer">Update</a>
-	
-
-</div>
 
 
-
-</form>
-	{% endfor %}
 </ul>
 <div class="form-group">
-<form action="{% url 'add-todo' %}" method="post">{% csrf_token%}
-	<input type="text" name="content">
-	<input type="submit" value="Add" class="btn btn-success">
+<form action="" method="post">{% csrf_token%}
+    {{forms.content}}
+    
+
+	<input type="submit" value="Update" class="btn btn-success">
 </div>
 </form>
 <!--scripts-->	
